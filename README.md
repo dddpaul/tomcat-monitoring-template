@@ -19,7 +19,7 @@ chown tomcat ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALI
 chmod 0600 ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALINA_HOME}/conf/jstatd.policy
 ```
 
-**3.** Set individual ports in _${CATALINA_HOME}/conf/setenv.sh_, for example:
+**3.** Set individual ports in _${CATALINA_HOME}/bin/setenv.sh_, for example:
 
 ```
 ...
@@ -31,7 +31,7 @@ chmod 0600 ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALINA
 
 **4.** If there is some evil firewall presence then set static RMI server port:
 
-  * Put [catalina-jmx-remote.jar](http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.55/bin/extras/) to _${CATALINA_HOME}/lib_ **(use your version of Tomcat)**.
+  * Put [catalina-jmx-remote.jar](http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.59/bin/extras/) to _${CATALINA_HOME}/lib_ **(use your version of Tomcat)**.
 
   * Add listener to _$CATALINA_HOME/conf/server.xml_, for example:
 
@@ -42,6 +42,6 @@ chmod 0600 ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALINA
 
   * Then allow inbound TCP connections to ports 9001 and 19001.
 
-  * Remove ```-Dcom.sun.management.jmxremote.port``` option from _${CATALINA_HOME}/conf/setenv.sh_.
+  * Remove ```-Dcom.sun.management.jmxremote.port``` option from _${CATALINA_HOME}/bin/setenv.sh_.
 
 **5.** Hostname must be properly resolved on server side! If necessary then add IP-address and FQDN to */etc/hosts*.

@@ -5,7 +5,7 @@
 CATALINA_OPTS="${CATALINA_OPTS} -XX:+UseConcMarkSweepGC"
 
 # Enable GC logging
-CATALINA_OPTS="${CATALINA_OPTS} -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${CATALINA_HOME}/logs/memory.log"
+CATALINA_OPTS="${CATALINA_OPTS} -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${CATALINA_HOME}/logs/memory.log -XX:+HeapDumpOnOutOfMemoryError"
 
 # Enable JMX remote access
 # If JmxRemoteLifecycleListener (catalina-jmx-remote.jar) is used then remove "com.sun.management.jmxremote.port" option
@@ -18,6 +18,6 @@ CATALINA_OPTS="${CATALINA_OPTS} \
 
 # Enable SNMP remote access
 CATALINA_OPTS="${CATALINA_OPTS} \
--Dcom.sun.management.snmp.port=161 \
+-Dcom.sun.management.snmp.port=1610 \
 -Dcom.sun.management.snmp.acl.file=${CATALINA_HOME}/conf/snmp.acl \
 -Dcom.sun.management.snmp.interface=0.0.0.0"
