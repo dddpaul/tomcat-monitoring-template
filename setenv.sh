@@ -22,3 +22,6 @@ CATALINA_OPTS="${CATALINA_OPTS} \
 -Dcom.sun.management.snmp.port=1610 \
 -Dcom.sun.management.snmp.acl.file=${CATALINA_HOME}/conf/snmp.acl \
 -Dcom.sun.management.snmp.interface=0.0.0.0"
+
+# Enable for ojdbc7 driver
+CATALINA_OPTS="${CATALINA_OPTS} -Duser.timezone=Europe/MSK"
