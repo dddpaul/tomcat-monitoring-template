@@ -2,6 +2,7 @@
 
 # Memory limits and GC
 #CATALINA_OPTS="${CATALINA_OPTS} -Xms256m -Xmx256m -XX:PermSize=96m -XX:MaxPermSize=96m -XX:+UseConcMarkSweepGC"
+#CATALINA_OPTS="${CATALINA_OPTS} -Xms256m -Xmx256m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=96m -XX:+UseConcMarkSweepGC"
 CATALINA_OPTS="${CATALINA_OPTS} -XX:+UseConcMarkSweepGC"
 
 # Enable GC logging
