@@ -23,9 +23,9 @@ chmod 0600 ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALINA
 
 ```
 ...
--Dcom.sun.management.jmxremote.port=9001
+-Dcom.sun.management.jmxremote.port=9000
 ...
--Dcom.sun.management.snmp.port=1611
+-Dcom.sun.management.snmp.port=1612
 ...
 ```
 
@@ -37,10 +37,10 @@ chmod 0600 ${CATALINA_HOME}/conf/jmx.* ${CATALINA_HOME}/conf/snmp.acl ${CATALINA
 
 ```
 <!-- JMX listener for remote debug behind firewall -->
-<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="9001" rmiServerPortPlatform="19001" />
+<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="9000" rmiServerPortPlatform="19000" />
 ```
 
-  * Then allow inbound TCP connections to ports 9001 and 19001.
+  * Then allow inbound TCP connections to ports 9000 and 19000.
 
   * Remove ```-Dcom.sun.management.jmxremote.port``` option from _${CATALINA_HOME}/bin/setenv.sh_.
 

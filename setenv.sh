@@ -5,8 +5,11 @@
 #CATALINA_OPTS="${CATALINA_OPTS} -Xms256m -Xmx256m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=96m -XX:+UseConcMarkSweepGC"
 CATALINA_OPTS="${CATALINA_OPTS} -XX:+UseConcMarkSweepGC"
 
-# Enable GC logging
-CATALINA_OPTS="${CATALINA_OPTS} -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${CATALINA_HOME}/logs/memory.log -XX:+HeapDumpOnOutOfMemoryError"
+# Enable GC verbose logging
+CATALINA_OPTS="${CATALINA_OPTS} -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+HeapDumpOnOutOfMemoryError"
+
+# Output GC log to file and rotate it
+CATALINA_OPTS="${CATALINA_OPTS} -Xloggc:${CATALINA_HOME}/logs/memory.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=3 -XX:GCLogFileSize=100M"
 
 # Enable JMX remote access
 # If JmxRemoteLifecycleListener (catalina-jmx-remote.jar) is used then remove "com.sun.management.jmxremote.port" option
@@ -19,9 +22,12 @@ CATALINA_OPTS="${CATALINA_OPTS} \
 
 # Enable SNMP remote access
 CATALINA_OPTS="${CATALINA_OPTS} \
--Dcom.sun.management.snmp.port=1610 \
+-Dcom.sun.management.snmp.port=1612 \
 -Dcom.sun.management.snmp.acl.file=${CATALINA_HOME}/conf/snmp.acl \
 -Dcom.sun.management.snmp.interface=0.0.0.0"
+
+# Speed up application startup
+CATALINA_OPTS="${CATALINA_OPTS} -Djava.security.egd=file:/dev/urandom"
 
 # Enable for ojdbc7 driver
 CATALINA_OPTS="${CATALINA_OPTS} -Duser.timezone=Europe/MSK"
